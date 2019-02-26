@@ -1,11 +1,34 @@
-<div class="col-md-12 text-center mt-5" ng-repeat="new in news track by $index">
-    {{new.title}}
-    {{new.content}}
-    {{new.description}}
-    {{new.author}}
-    {{new.date}}
-    <br>
+<div class="row">
 
-    <span ng-if="new.archiveDate" ng-click="deleteNew(new._id, $index)">Eliminar Noticia</span>
-    <span ng-if="!new.archiveDate" ng-click="archiveNew(new._id, $index)">Archivar Noticia</span>
+    <div class="col-md-12 text-center mt-5" ng-repeat="new in news track by $index">
+        <h2>{{new.title}}</h2>
+
+        <p>{{new.content}}</p>
+
+        <p>{{new.description}}</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                {{new.date | date : format : timezone}}
+            </div>
+            <div class="col-md-6">
+                Author: <b>{{new.author}}</b>
+            </div>
+        </div>
+
+        <p ng-if="new.archiveDate">Archived Date: <b>{{new.archiveDate | date : format : timezone}}</b></p>
+
+        <div class="col-md-12 text-right">
+            <button type="button" class="btn btn-danger" ng-if="new.archiveDate"
+                    ng-click="deleteNew(new._id, $index)">
+                Eliminar Noticia
+            </button>
+            <button type="button" class="btn btn-warning" ng-if="!new.archiveDate"
+                    ng-click="archiveNew(new._id, $index)">Archivar Noticia
+            </button>
+        </div>
+
+        <hr>
+
+    </div>
 </div>
