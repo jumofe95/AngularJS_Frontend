@@ -1,9 +1,10 @@
 <div class="row">
 
-    <div class="col-md-12 text-center mt-5" ng-repeat="new in news track by $index">
-        <h2>{{new.title}}</h2>
-
-        <p>{{new.content}}</p>
+    <div ng-if="news.length > 0" class="col-md-8 offset-md-2 text-justify mt-5" ng-repeat="new in news track by $index">
+        <h2 class="text-center mb-3">{{new.title}}</h2>
+        <blockquote class="blockquote">
+            <p>{{new.content}}</p>
+        </blockquote>
 
         <p>{{new.description}}</p>
 
@@ -11,7 +12,7 @@
             <div class="col-md-6">
                 {{new.date | date : format : timezone}}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-right">
                 Author: <b>{{new.author}}</b>
             </div>
         </div>
@@ -24,11 +25,16 @@
                 Eliminar Noticia
             </button>
             <button type="button" class="btn btn-warning" ng-if="!new.archiveDate"
-                    ng-click="archiveNew(new._id, $index)">Archivar Noticia
+                    ng-click="archiveNew(new._id, $index)">
+                Archivar Noticia
             </button>
         </div>
 
         <hr>
 
+    </div>
+
+    <div ng-if="news.length == 0" class="col-md-12 text-center mt-5">
+        Sorry. Actually there's no news :(
     </div>
 </div>
