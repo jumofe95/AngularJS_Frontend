@@ -21,6 +21,24 @@ app.factory('ApiService', ['$http', 'SERVERS', function ($http, SERVERS) {
                 timeout: timeout,
                 headers: headers
             });
+        },
+
+        getAllArchivedNews: function () {
+            return $http({
+                method:"GET",
+                url: API_URL + "/news/archived",
+                timeout: timeout,
+                headers: headers
+            });
+        },
+
+        deleteNew: function (new_id) {
+            return $http({
+                method:"DELETE",
+                url: API_URL + "/news/"+ new_id +"/delete",
+                timeout: timeout,
+                headers: headers
+            });
         }
     }
 }]);

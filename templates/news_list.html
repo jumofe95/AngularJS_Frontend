@@ -1,0 +1,11 @@
+<div class="col-md-12 text-center mt-5" ng-repeat="new in news track by $index">
+    {{new.title}}
+    {{new.content}}
+    {{new.description}}
+    {{new.author}}
+    {{new.date}}
+    <br>
+
+    <span ng-if="new.archiveDate" ng-click="deleteNew(new._id, $index)">Eliminar Noticia</span>
+    <span ng-if="!new.archiveDate" ng-click="archiveNew(new._id, $index)">Archivar Noticia</span>
+</div>

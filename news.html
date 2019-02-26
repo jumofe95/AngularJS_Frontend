@@ -3,13 +3,12 @@
         News
     </h1>
 
-    <div class="col-md-12 text-center mt-5" ng-repeat="new in news track by $index">
-        {{new.title}}
-        {{new.content}}
-        {{new.description}}
-        {{new.author}}
-        {{new.date}}
-        <br>
-        <span ng-click="archiveNew(new._id, $index)">Archivar Noticia</span>
-    </div>
+    <h5 class="col-md-12 text-right">
+        <a ng-href="/#!/archived">
+            See all archived news
+        </a>
+    </h5>
+
+    <news-list news="news"></news-list>
+
 </div>
