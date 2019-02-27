@@ -1,4 +1,4 @@
-app.config(function($routeProvider) {
+app.config(["$routeProvider", function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl : "news.html",
@@ -8,4 +8,4 @@ app.config(function($routeProvider) {
             templateUrl : "archived.html",
             controller: 'archivedController'
         });
-});
+}]);
