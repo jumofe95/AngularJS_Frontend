@@ -1,4 +1,4 @@
-var app = angular.module("myshop", ["ngRoute"]);
+var app = angular.module("myapp", ["ngRoute"]);
 
 app.constant('SERVERS',{
     DEVELOPMENT: "http://localhost:3000/api"
